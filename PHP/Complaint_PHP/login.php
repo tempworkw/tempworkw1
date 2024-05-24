@@ -5,12 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Username = $_POST['username'];
     $Password = $_POST['password'];
     $role = $_POST['role'];
-
-    // Check if the user is a moderator
-    $sql = "SELECT * FROM moderator_info WHERE moderator_name='".$Username."' AND moderator_pass='".$Password."'";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_array($result);
-
+    $row= "";
     if ($row) {
         if ($role == 'moderator') {
             $Mod_club = $row['club'];
